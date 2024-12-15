@@ -1,0 +1,22 @@
+enable 
+configure terminal 
+hostname DHCP_Router
+ip dhcp pool DHCP
+network 192.168.10.0 255.255.255.0
+default_router 192.168.10.1
+exit
+
+ip dhcp excluded-address 192.168.10.2 192.168.10.5
+interface GigabitEthernet 0/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+
+ip dhcp pool DHCP2
+network 192.168.20.0 255.255.255.0
+default_router 192.168.20.1
+exit
+
+ip dhcp excluded-address 192.168.20.2 192.168.20.5
+interface GigabitEthernet 0/0
+ip address 192.168.20.1 255.255.255.0
+no shutdown
